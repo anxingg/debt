@@ -5,9 +5,10 @@
     <file url="file://$PROJECT_DIR$/debt-common-util" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/debt-interface" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/debt-organization-manager" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/debt-organization-web" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/debt-parent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/debt-position-manager" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/debt-service-util" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/debt-web-util" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/debt-world-web" charset="UTF-8" />
   </component>
 </project>

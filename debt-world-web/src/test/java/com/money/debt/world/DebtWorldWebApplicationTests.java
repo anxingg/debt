@@ -1,4 +1,4 @@
-package com.money.debt.organization;
+package com.money.debt.world;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

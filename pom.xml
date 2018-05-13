@@ -17,6 +17,9 @@
         <module>debt-interface</module>
         <module>debt-common-util</module>
 
+        <module>debt-world-web</module>
+        <module>debt-organization-manager</module>
+        <module>debt-position-manager</module>
     </modules>
 
 

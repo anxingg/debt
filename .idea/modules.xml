@@ -7,10 +7,11 @@
       <module fileurl="file://$PROJECT_DIR$/debt-common-util/debt-common-util.iml" filepath="$PROJECT_DIR$/debt-common-util/debt-common-util.iml" />
       <module fileurl="file://$PROJECT_DIR$/debt-interface/debt-interface.iml" filepath="$PROJECT_DIR$/debt-interface/debt-interface.iml" />
       <module fileurl="file://$PROJECT_DIR$/debt-organization-manager/debt-organization-manager.iml" filepath="$PROJECT_DIR$/debt-organization-manager/debt-organization-manager.iml" />
-      <module fileurl="file://$PROJECT_DIR$/debt-organization-web/debt-organization-web.iml" filepath="$PROJECT_DIR$/debt-organization-web/debt-organization-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/debt-parent/debt-parent.iml" filepath="$PROJECT_DIR$/debt-parent/debt-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/debt-position-manager/debt-position-manager.iml" filepath="$PROJECT_DIR$/debt-position-manager/debt-position-manager.iml" />
       <module fileurl="file://$PROJECT_DIR$/debt-service-util/debt-service-util.iml" filepath="$PROJECT_DIR$/debt-service-util/debt-service-util.iml" />
       <module fileurl="file://$PROJECT_DIR$/debt-web-util/debt-web-util.iml" filepath="$PROJECT_DIR$/debt-web-util/debt-web-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/debt-world-web/debt-world-web.iml" filepath="$PROJECT_DIR$/debt-world-web/debt-world-web.iml" />
     </modules>
   </component>
 </project>

@@ -6,8 +6,8 @@ import org.springframework.context.annotation.ComponentScan;
 import tk.mybatis.spring.annotation.MapperScan;
 
 @SpringBootApplication
-@ComponentScan("com.money.debt")
-@MapperScan("com.money.debt.organization.mapper")
+@ComponentScan(basePackages = "com.money.debt")
+@MapperScan(basePackages = "com.money.debt.organization.mapper")
 public class DebtOrganizationManagerApplication {
 
 	public static void main(String[] args) {

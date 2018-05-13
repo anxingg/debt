@@ -16,6 +16,7 @@ com\money\debt\bean\ApproveRecord.class
 com\money\debt\bean\CasePaid1.class
 com\money\debt\bean\Table2.class
 com\money\debt\bean\CaseHistory.class
+com\money\debt\bean\SysPosition.class
 com\money\debt\bean\VisitRecordCopy.class
 com\money\debt\bean\SysResourceCopy.class
 com\money\debt\bean\AddressBak.class
