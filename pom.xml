@@ -9,4 +9,16 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
+    <modules>
+        <module>debt-parent</module>
+        <module>debt-bean</module>
+        <module>debt-service-util</module>
+        <module>debt-web-util</module>
+        <module>debt-interface</module>
+        <module>debt-common-util</module>
+
+    </modules>
+
+
+
 </project>
