@@ -20,6 +20,7 @@
         <module>debt-world-web</module>
         <module>debt-organization-manager</module>
         <module>debt-position-manager</module>
+        <module>debt-principal-manager</module>
     </modules>
 
 

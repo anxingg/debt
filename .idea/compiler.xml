@@ -12,6 +12,7 @@
         <module name="debt-organization-manager" />
         <module name="debt-organization-web" />
         <module name="debt-position-manager" />
+        <module name="debt-principal-manager" />
         <module name="debt-service-util" />
         <module name="debt-web-util" />
         <module name="debt-world-web" />
@@ -26,6 +27,7 @@
       <module name="debt-organization-web" target="1.6" />
       <module name="debt-parent" target="1.8" />
       <module name="debt-position-manager" target="1.8" />
+      <module name="debt-principal-manager" target="1.8" />
       <module name="debt-service-util" target="1.8" />
       <module name="debt-web-util" target="1.8" />
       <module name="debt-world-web" target="1.6" />

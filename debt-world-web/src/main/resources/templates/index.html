@@ -38,6 +38,11 @@
                 <li><a href="javascript:add_tab('职位管理','posiListPage')" style="text-decoration:none;">职位信息管理</a></li>
             </ul>
         </div>
+        <div title="委托方管理">
+            <ul class="nav">
+                <li><a href="javascript:add_tab('委托方管理','principalListPage')" style="text-decoration:none;">委托方管理</a></li>
+            </ul>
+        </div>
 
 
     </div>
@@ -63,6 +68,13 @@
         }
     }
 
+    function formatDatebox(value) {
+        if (value == null || value == '') {
+            return '';
+        }
+        var   dt = new Date(value);
+        return dt.getFullYear() + '-' + (dt.getMonth() + 1) + '-' + dt.getDate();
 
+    }
 </script>
 </html>

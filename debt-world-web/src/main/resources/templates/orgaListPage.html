@@ -8,7 +8,7 @@
 
 
 <table id="dg" class="easyui-treegrid"
-       data-options="method:'get',toolbar:'#tb',url:'organization/showAll',idField:'id',treeField:'name'">
+       data-options="singleSelect:true,method:'get',toolbar:'#tb',url:'organization/showAll',idField:'id',treeField:'name'">
     <thead>
     <tr>
         <th data-options="field:'id'" hidden=true></th>
@@ -21,8 +21,8 @@
         <th data-options="field:'phone'" width="10%">电话号码</th>
         <th data-options="field:'postCode'" width="10%">邮政编码</th>
         <th data-options="field:'fax'" width="5%">传真号</th>
-        <th data-options="field:'createTime'" width="10%">创建时间</th>
-        <th data-options="field:'modifyTime'" width="10%">修改时间</th>
+        <th data-options="field:'createTime',formatter: formatDatebox" width="10%">创建时间</th>
+        <th data-options="field:'modifyTime',formatter: formatDatebox" width="10%">修改时间</th>
 
     </tr>
     </thead>

@@ -62,6 +62,7 @@ com\money\debt\bean\UserLog.class
 com\money\debt\bean\AreaCopy.class
 com\money\debt\bean\CaseCarLoan.class
 com\money\debt\bean\CusProvince.class
+com\money\debt\bean\EntrustQuery.class
 com\money\debt\bean\SysRoleResourceRelation.class
 com\money\debt\bean\CallRecord.class
 com\money\debt\bean\AddressCopy1.class

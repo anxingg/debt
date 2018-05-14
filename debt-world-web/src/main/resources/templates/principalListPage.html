@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:width="http://www.w3.org/1999/xhtml" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div style="padding: 15px">
+<span>委托方</span>
+    <input id="principal_header"  style="width:200px;margin-left: 5px"/>
+    <span style="margin-left: 20px">添加日期</span>
+    <input id="from_time_header" class= "easyui-datebox"  style="width:180px;margin-left: 5px;margin-left: 5px"/>
+    <span>到</span>
+    <input id="end_time_header" class= "easyui-datebox" style="width:180px;margin-left: 5px"/>
+    <span style="margin-left: 20px">初始营业员</span>
+    <input id="init_emp_header"  style="width:200px;margin-left: 5px;margin-right: 10px"/>
+    <button type="button" style="width: 100px;height: 25px" onclick="javascript:startSearch()" >确认</button>
+</div>
+<table id="dg_prin" class="easyui-datagrid"
+       data-options="singleSelect:true,method:'get',toolbar:'#tb_prin',url:'principal/showAll'">
+    <thead>
+    <tr>
+        <th  data-options="field:'id'" hidden=true></th>
+        <th data-options="field:'state'" hidden=true></th>
+        <th data-options="field:'stateStr'" width="10%">客户状态</th>
+        <th data-options="field:'productName'" width="10%">合同名称</th>
+        <th data-options="field:'name'" width="20%">委托方</th>
+        <th data-options="field:'code'" width="10%">简码</th>
+        <th data-options="field:'createTime',formatter: formatDatebox" width="20%" >添加日期</th>
+        <th data-options="field:'modifyTime',formatter: formatDatebox" width="20%">修改日期</th>
+        <th data-options="field:'createEmpName'" width="10%">初始营业员</th>
+
+
+    </tr>
+    </thead>
+</table>
+
+<div id="tb_prin" style="padding:5px;height:auto">
+    <div style="margin-bottom:5px">
+        <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="addAttrInfo()">新增</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editAttrInfo()">编辑</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-ok" plain="true" onclick="freeOrForbidIt('1')">启用</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-no" plain="true" onclick="freeOrForbidIt('0')">禁用</a>
+    </div>
+
+
+</div>
+
+
+<div id="dlg_prin" class="easyui-dialog" title="" style="width:600px;height:400px;"
+     closed="true" data-options="resizable:true,modal:true" >
+
+    <center>
+
+            <form id="attrForm_prin" action="/principal/addOne" method="post">
+
+                <input id="id_prin" name="id"   type="hidden"/>
+                <label>合同名称*</label>
+                <input id="product_name_prin" name="productName"  style="width:230px"/>
+
+                <br/>
+                <label>委托方*</label>
+                <input  id="name_prin" name="name" style="width:230px"/>
+
+                <br/>
+                <label>简码*</label>
+                <input  id="code_prin" name="code"  style="width:230px"/>
+                <br/>
+                <label>备注</label>
+                <input  id="remark_prin" name="remark"  style="width:230px"/>
+
+                <br/>
+                <input type="submit" value="新增" onclick="return saveInfo()"/>
+
+                <input type="button" value="取消" onclick="unSaveClose()"/>
+
+            </form>
+
+    </center>
+</div>
+
+
+</body>
+
+<script src="jquery/jquery-form.min.js"></script>
+<script type="text/javascript">
+
+function startSearch() {
+    var params={};
+    console.log("name="+$("#principal_header").val());
+
+
+    params['name']=$("#principal_header").val();
+    params['fromTimeStr']=$("#from_time_header").datebox("getValue");
+    params['endTimeStr']=$("#end_time_header").datebox("getValue");
+    $.post("/principal/querySelective",params,function (data) {
+        console.log("data="+JSON.stringify(data));
+        $('#dg_prin').datagrid('loadData',data);
+    });
+}
+
+
+function freeOrForbidIt(tobe) {
+        if (!checkBeforeDialog()) {
+            return;
+        }
+        var attrInfoRow =  $("#dg_prin").datagrid("getSelected");
+        console.log("attrInfoRow="+JSON.stringify(attrInfoRow));
+        console.log("tobe="+tobe);
+        if (attrInfoRow.state==tobe){//如果当前状态与欲修改状态相同，不处理
+            if (tobe=='1'){
+                $.messager.alert('警告', '该客户状态正常,无需启用', 'warning');
+            }
+            if (attrInfoRow.state=='0'){
+                $.messager.alert('警告', '该客户已被禁用,无需禁用', 'warning');
+            }
+            return ;
+        }
+        $.post("/principal/freeOrForbidOne",{'id':attrInfoRow.id,'tobe':tobe},function (data) {
+            if (data == 'success') {
+                console.log("操作成功");
+                reloadData();
+            } else {
+                $.messager.alert('错误', '操作失败', 'warning');
+                console.log("操作失败");
+            }
+        });
+    }
+
+
+
+    function saveInfo() {
+        console.log("saveInfo===")
+        $("#attrForm_prin").ajaxSubmit({
+            resetForm: true,
+            success:function(result){
+                if (result == 'success') {
+                    console.log("保存成功");
+                    reloadData();
+                } else {
+                    $.messager.alert('错误', '保存失败', 'warning');
+                    console.log("保存失败");
+                }
+                $("#dlg_prin").dialog("close");
+            }
+
+        });
+        return false;
+
+    }
+
+
+
+    function unSaveClose() {
+        $("#dlg_prin").dialog("close");
+        $("#attrForm_prin").resetForm();
+
+    }
+
+    /*<![CDATA[*/
+    function  reloadData() {
+        console.log("重新加载了数据");
+        $('#dg_prin').datagrid({url:'principal/showAll' });
+    }
+
+    /*]]>*/
+    function addAttrInfo() {
+
+        //弹出框
+        $("#dlg_prin").dialog("open");
+
+        //进系统前先清空 jquery-from已做
+
+
+    }
+
+    function editAttrInfo() {
+
+        if (!checkBeforeDialog()) {
+            return;
+        }
+        //弹出框
+        $("#dlg_prin").dialog("open");
+
+        //进页面前先加载数据
+        var attrInfoRow =  $("#dg_prin").datagrid("getSelected");
+        console.log(JSON.stringify(attrInfoRow));
+        $("#id_prin").val(attrInfoRow.id);
+        $("#product_name_prin").val(attrInfoRow.productName);
+        $("#name_prin").val(attrInfoRow.name);
+        $("#code_prin").val(attrInfoRow.code);
+        $("#remark_prin").val(attrInfoRow.remark);
+
+
+
+    }
+
+
+    function checkBeforeDialog() {
+        var attrInfoRow = $("#dg_prin").datagrid('getSelected');
+        if (attrInfoRow == null) {
+            $.messager.alert('警告', '选择要操作的数据', 'warning');
+            return false;
+        }
+        return true;
+    }
+
+
+
+
+</script>
+
+
+</html>

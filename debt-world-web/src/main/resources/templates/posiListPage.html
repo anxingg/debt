@@ -8,15 +8,15 @@
 
 
 <table id="dg_posi" class="easyui-treegrid"
-       data-options="method:'get',toolbar:'#tb_posi',url:'position/showAll',idField:'id',treeField:'name'">
+       data-options="singleSelect:true,method:'get',toolbar:'#tb_posi',url:'position/showAll',idField:'id',treeField:'name'">
     <thead>
     <tr>
         <th data-options="field:'id'" hidden=true></th>
         <th data-options="field:'name'" width="10%">职位名称</th>
         <th data-options="field:'type'" width="10%">职位类型</th>
         <th data-options="field:'description'" width="40%">职位描述</th>
-        <th data-options="field:'createTime'" width="20%">创建时间</th>
-        <th data-options="field:'modifyTime'" width="20%">修改时间</th>
+        <th data-options="field:'createTime',formatter: formatDatebox" width="20%">创建时间</th>
+        <th data-options="field:'modifyTime',formatter: formatDatebox" width="20%">修改时间</th>
 
 
     </tr>

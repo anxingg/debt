@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/debt-organization-manager/debt-organization-manager.iml" filepath="$PROJECT_DIR$/debt-organization-manager/debt-organization-manager.iml" />
       <module fileurl="file://$PROJECT_DIR$/debt-parent/debt-parent.iml" filepath="$PROJECT_DIR$/debt-parent/debt-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/debt-position-manager/debt-position-manager.iml" filepath="$PROJECT_DIR$/debt-position-manager/debt-position-manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/debt-principal-manager/debt-principal-manager.iml" filepath="$PROJECT_DIR$/debt-principal-manager/debt-principal-manager.iml" />
       <module fileurl="file://$PROJECT_DIR$/debt-service-util/debt-service-util.iml" filepath="$PROJECT_DIR$/debt-service-util/debt-service-util.iml" />
       <module fileurl="file://$PROJECT_DIR$/debt-web-util/debt-web-util.iml" filepath="$PROJECT_DIR$/debt-web-util/debt-web-util.iml" />
       <module fileurl="file://$PROJECT_DIR$/debt-world-web/debt-world-web.iml" filepath="$PROJECT_DIR$/debt-world-web/debt-world-web.iml" />
